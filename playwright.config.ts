@@ -8,6 +8,7 @@ export default defineConfig({
     headless: true, // Run tests in headless mode
     viewport: { width: 1280, height: 720 },
     actionTimeout: 5000, // Maximum time for Playwright actions (5 seconds)
+    screenshot: 'only-on-failure',
   },
   projects: [
     { name: 'Chromium', use: { browserName: 'chromium' } },
