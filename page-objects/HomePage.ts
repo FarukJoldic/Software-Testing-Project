@@ -40,4 +40,13 @@ export class HomePage {
     // Wait for the product page to load
     await this.page.waitForLoadState("networkidle");
   }
+
+  async selectProduct(productName: string) {
+    const productLocator = this.page.locator(`.card-title:has-text("${productName}")`);
+    await expect(productLocator).toBeVisible({ timeout: 10000 }); // Ensure the product is visible
+    await productLocator.click();
+
+    // Wait for the product page to load
+    await this.page.waitForLoadState("domcontentloaded");
+  }
 }
